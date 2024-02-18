@@ -1,3 +1,4 @@
+import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -6,16 +7,20 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import styles from "./global.css?url";
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="font-sans antialiased">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-screen grid">
         {children}
         <ScrollRestoration />
         <Scripts />
