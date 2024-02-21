@@ -13,8 +13,8 @@ export const meta: MetaFunction = () => {
 
 export default function Component() {
   return (
-    <article className="prose dark:prose-invert">
-      <h1 className="text-2xl font-bold">Hi! I'm Abhi :)</h1>
+    <article className="prose prose-lg dark:prose-invert">
+      <h1>Hi! I'm Abhi :)</h1>
       <p>
         I'm a frontend developer, optimist, and community builder. I currently
         work as the VP of Product at Vercel, where I help teach the Next.js
