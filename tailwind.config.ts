@@ -1,9 +1,9 @@
 import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 import radixColors from "tailwindcss-radix-colors";
 import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: ["app/**/*.{js,jsx,ts,tsx}"],

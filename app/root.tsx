@@ -11,9 +11,11 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import clsx from "clsx";
-import styles from "./global.css?url";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+// avoiding ?url css imports because of bug; see: https://github.com/remix-run/remix/issues/8813
+import "./global.css";
+
+// export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
