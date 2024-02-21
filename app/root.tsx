@@ -43,6 +43,7 @@ const navLinks = [
   { title: "misc", to: "/misc" },
   { title: "résumé", to: "/resume" },
   { title: "contact", to: "/contact" },
+  { title: "style guide", to: "/style-guide" },
 ];
 
 export default function App() {
