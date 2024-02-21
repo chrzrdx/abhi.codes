@@ -43,8 +43,11 @@ const navLinks = [
   { title: "misc", to: "/misc" },
   { title: "résumé", to: "/resume" },
   { title: "contact", to: "/contact" },
-  { title: "style guide", to: "/style-guide" },
 ];
+
+if (process.env.NODE_ENV === "development") {
+  navLinks.push({ title: "style guide", to: "/style-guide" });
+}
 
 export default function App() {
   return (
@@ -85,7 +88,7 @@ export default function App() {
         </nav>
       </header>
       <Outlet />
-      <footer className="col-start-2 col-span-1 text-gold-11 dark:text-golddark-11">
+      <footer className="col-start-2 pt-8 mt-8 border-t border-t-gold-6 dark:border-t-golddark-6 col-span-1 text-gold-11 dark:text-golddark-11">
         Copyright &#169; {new Date().getFullYear()} Abhinandan Panigrahi. All
         rights reserved.
       </footer>
