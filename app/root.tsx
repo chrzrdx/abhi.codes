@@ -12,7 +12,10 @@ import {
 import styles from "./global.css?url";
 import { Header } from "./components/header";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+export const links: LinksFunction = () => [
+  { rel: "preload", href: styles, as: "style" },
+  { rel: "stylesheet", href: styles },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
