@@ -11,6 +11,7 @@ import {
 
 import styles from "./global.css?url";
 import { Header } from "./components/header";
+import { GlobalPendingIndicator } from "./components/global-pending-indicator";
 
 export const links: LinksFunction = () => [
   { rel: "preload", href: styles, as: "style" },
@@ -38,6 +39,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <div className="grid max-w-3xl my-4 md:my-16 mx-auto grid-cols-[1fr_3fr] gap-8 grid-rows-[auto_max-content]">
+      <GlobalPendingIndicator />
       <Header />
       <Outlet />
       <footer className="col-start-2 pt-8 mt-8 border-t border-t-gold-6 dark:border-t-golddark-6 col-span-1 text-gold-11 dark:text-golddark-11">
