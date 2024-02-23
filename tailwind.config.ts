@@ -21,7 +21,7 @@ export default {
         sans: ["Recursive Variable", ...defaultTheme.fontFamily.sans],
       },
       typography: ({ theme }: { theme: (a: string) => string }) => ({
-        gold: {
+        DEFAULT: {
           css: {
             "--tw-prose-body": theme("colors.gold.12"),
             "--tw-prose-headings": theme("colors.gold.12"),

@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
 
 export default function Component() {
   return (
-    <article className="prose prose-gold dark:prose-invert">
+    <article className="prose dark:prose-invert">
       <Outlet />
     </article>
   );

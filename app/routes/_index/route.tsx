@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 
 export default function Component() {
   return (
-    <article className="prose prose-gold prose-lg dark:prose-invert">
+    <article className="prose lg:prose-lg dark:prose-invert">
       <h1>Hi! I'm Abhi :)</h1>
       <p>
         I'm a frontend developer, optimist, and community builder. I currently
