@@ -9,6 +9,13 @@ export default {
   content: ["app/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       fontFamily: {
         sans: ["Recursive Variable", ...defaultTheme.fontFamily.sans],
