@@ -1,4 +1,5 @@
-import type { Route } from "./+types/route";
+import { Link } from "react-router";
+import type { Route } from "./+types/posts.route";
 
 export async function loader({ request }: Route.LoaderArgs) {
   return null;
@@ -14,12 +15,13 @@ export const meta: Route.MetaFunction = () => {
 export default function Component() {
   return (
     <article className="prose lg:prose-lg dark:prose-invert">
-      <h1>Hi! I'm Abhi :)</h1>
-      <p>
-        I'm a frontend developer, optimist, and community builder. I currently
-        work as the VP of Product at Vercel, where I help teach the Next.js
-        community, an open-source web framework built with React.
-      </p>
+      List of all posts
+
+      <ul>
+        <li>
+          <Link to="a-blog-to-remember">A blog to remember</Link>
+        </li>
+      </ul>
     </article>
   );
 }

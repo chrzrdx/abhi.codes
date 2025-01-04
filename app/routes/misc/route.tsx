@@ -1,10 +1,10 @@
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import type { Route } from "./+types/route";
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request }: Route.LoaderArgs) {
   return null;
 }
 
-export const meta: MetaFunction = () => {
+export const meta: Route.MetaFunction = () => {
   return [
     { title: "New Remix App" },
     { name: "description", content: "Welcome to Remix!" },
@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 
 export default function Component() {
   return (
-    <article>
+    <article className="prose lg:prose-lg dark:prose-invert">
       <h1>Hi! I'm Abhi :)</h1>
       <p>
         I'm a frontend developer, optimist, and community builder. I currently

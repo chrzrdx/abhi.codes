@@ -1,5 +1,5 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { Route } from "./+types/route";
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request }: Route.LoaderArgs) {
   return null;
 }

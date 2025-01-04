@@ -1,6 +1,3 @@
-import "@fontsource-variable/recursive";
-
-import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -8,28 +5,24 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
-  useRouteError,
-} from "@remix-run/react";
+} from "react-router";
+import type { Route } from "./+types/root";
+import stylesheet from "./app.css?url";
 
-import styles from "./global.css?url";
-import { Header } from "./components/header";
-import { GlobalPendingIndicator } from "./components/global-pending-indicator";
-
-export const links: LinksFunction = () => [
-  { rel: "preload", href: styles, as: "style" },
-  { rel: "stylesheet", href: styles },
+export const links: Route.LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen grid p-4 font-sans antialiased text-gold-12 dark:text-golddark-12 bg-gold-1 dark:bg-golddark-1">
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -39,40 +32,34 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <div className="grid max-w-3xl my-4 md:my-16 mx-auto grid-cols-[1fr_3fr] gap-8 grid-rows-[auto_max-content]">
-      <GlobalPendingIndicator />
-      <Header />
-      <Outlet />
-      <footer className="col-start-2 pt-8 mt-8 border-t border-t-gold-6 dark:border-t-golddark-6 col-span-1 text-gold-11 dark:text-golddark-11">
-        Copyright &#169; {new Date().getFullYear()} Abhinandan Panigrahi. All
-        rights reserved.
-      </footer>
-    </div>
-  );
+  return <Outlet />;
 }
 
-export function ErrorBoundary() {
-  const error = useRouteError();
-  let status = 500;
-  let message = "An unexpected error occurred.";
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  let stack: string | undefined;
+
   if (isRouteErrorResponse(error)) {
-    status = error.status;
-    switch (error.status) {
-      case 404:
-        message = "Page Not Found";
-        break;
-    }
-  } else {
-    console.error(error);
+    message = error.status === 404 ? "404" : "Error";
+    details =
+      error.status === 404
+        ? "The requested page could not be found."
+        : error.statusText || details;
+  } else if (import.meta.env.DEV && error && error instanceof Error) {
+    details = error.message;
+    stack = error.stack;
   }
 
   return (
-    <Layout>
-      <div className="container prose py-8">
-        <h1>{status}</h1>
-        <p>{message}</p>
-      </div>
-    </Layout>
+    <main className="pt-16 p-4 container mx-auto">
+      <h1>{message}</h1>
+      <p>{details}</p>
+      {stack && (
+        <pre className="w-full p-4 overflow-x-auto">
+          <code>{stack}</code>
+        </pre>
+      )}
+    </main>
   );
 }

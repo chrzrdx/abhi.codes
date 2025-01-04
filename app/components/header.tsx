@@ -1,5 +1,5 @@
-import { cn } from "@/lib/styles";
-import { Link, NavLink } from "@remix-run/react";
+import { Link, NavLink } from "react-router";
+import { cn } from "~/lib/styles";
 
 const navLinks = [
   { title: "about", to: "/" },

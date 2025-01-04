@@ -1,11 +1,11 @@
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { Outlet } from "@remix-run/react";
+import type { Route } from "./+types/route";
+import StyleGuide from "~/content/style-guide.mdx";
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request }: Route.LoaderArgs) {
   return null;
 }
 
-export const meta: MetaFunction = () => {
+export const meta: Route.MetaFunction = () => {
   return [
     { title: "New Remix App" },
     { name: "description", content: "Welcome to Remix!" },
@@ -14,8 +14,8 @@ export const meta: MetaFunction = () => {
 
 export default function Component() {
   return (
-    <article className="prose prose-strong:font-extrabold lg:prose-lg dark:prose-invert">
-      <Outlet />
+    <article className="prose dark:prose-invert">
+      <StyleGuide />
     </article>
   );
 }
