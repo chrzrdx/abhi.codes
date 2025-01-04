@@ -1,9 +1,0 @@
-@import "tailwindcss";
-
-@plugin "@tailwindcss/typography";
-
-@variant dark (&:where(.dark, .dark *));
-
-@theme {
-  --font-display: "Recursive Variable", sans-serif;
-}
