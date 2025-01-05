@@ -1,15 +1,15 @@
 ---
+import AbhinandanLogo from "@assets/icons/abhinandan.svg";
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
-import { SITE } from "@consts";
 ---
 
 <header>
   <Container>
-    <div class="flex flex-wrap justify-between gap-y-2">
+    <div class="flex justify-between gap-y-2">
       <Link href="/" underline={false}>
-        <div class="font-semibold">
-          {SITE.NAME}
+        <div class="font-semibold text-white">
+          <AbhinandanLogo class="h-8 w-64" />
         </div>
       </Link>
       <nav class="flex gap-1">
