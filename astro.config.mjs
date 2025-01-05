@@ -4,9 +4,14 @@ import tailwind from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-	site: "https://abhi.codes",
-	integrations: [mdx(), sitemap()],
-	vite: {
-		plugins: [tailwind()],
-	}
+  site: "https://abhi.codes",
+  integrations: [mdx(), sitemap()],
+  vite: {
+    plugins: [tailwind()],
+  },
+  experimental: {
+    svg: {
+      mode: "sprite",
+    },
+  },
 });

@@ -7,13 +7,13 @@ import PageLayout from "@layouts/PageLayout.astro";
 import { readingTime } from "@lib/utils";
 
 export async function getStaticPaths() {
-	const posts = (await getCollection("blog"))
-		.filter((post) => !post.data.draft)
-		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
 }
 type Props = CollectionEntry<"blog">;
 
@@ -24,11 +24,9 @@ const { Content } = await post.render();
 <PageLayout title={post.data.title} description={post.data.description}>
   <Container>
     <div class="animate">
-      <BackToPrev href="/blog">
-        Back to blog
-      </BackToPrev>
+      <BackToPrev href="/blog"> Back to blog </BackToPrev>
     </div>
-    <div class="space-y-1 my-10">
+    <div class="my-10 space-y-1">
       <div class="animate flex items-center gap-1.5">
         <div class="font-base text-sm">
           <FormattedDate date={post.data.date} />
