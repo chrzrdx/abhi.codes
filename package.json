@@ -17,13 +17,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.5",
+    "@astrojs/mdx": "^4.0.6",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource-variable/recursive": "^5.1.1",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.0-beta.9",
-    "astro": "^5.1.5",
+    "astro": "^5.1.7",
     "clsx": "^2.1.1",
     "esbuild": "^0.24.2",
     "sharp": "^0.33.5",
@@ -35,7 +35,7 @@
     "@biomejs/biome": "^1.9.4",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.9"
+    "prettier-plugin-tailwindcss": "^0.6.10"
   },
   "trustedDependencies": [
     "@biomejs/biome",
